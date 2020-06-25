@@ -1,0 +1,179 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "sap.ui.administration",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "http://localhost:8081/https://services.odata.org/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://cart",
+			"favIcon": "img/favicon.ico"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sap.ui.administration.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ui.administration.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"handleValidation": true,
+		"resources": {
+			"css": [{"uri": "css/style.css"}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"controlId": "mainContents",
+				"viewType": "XML",
+				"controlAggregation": "pages",
+				"viewPath": "sap.ui.administration.view",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": [
+						"home"
+					]
+				},
+				{
+					"pattern": "settings",
+					"name": "settings",
+					"target": [
+						"settings"
+					]
+				},
+				{
+					"pattern": "sales",
+					"name": "sales",
+					"target": [
+						"details",
+						"master"
+					]
+				},
+				{
+					"pattern": "quantity-stock/:categoryID:",
+					"name": "quantityStock",
+					"target": [
+						"quantityStock",
+						"master"
+					]
+				},
+				{
+					"pattern": "salesMade",
+					"name": "salesMade",
+					"target": [
+						"salesMade",
+						"master"
+					]
+				},
+				{
+					"pattern": "sales/category/{categoryID}",
+					"name": "categoryDetails",
+					"target": [
+						"categoryDetails",
+						"master"
+					]
+				},
+				{
+					"pattern": "salesByCategory/{categoryID}",
+					"name": "salesByCategory",
+					"target": [
+						"salesByCategory",
+						"master"
+					]
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home"
+				},
+				"details": {
+					"controlId" : "salesApp",
+					"viewName": "sales.Details",
+					"controlAggregation": "detailPages",
+					"parent": "salesApp"
+				},
+				"quantityStock": {
+					"controlId" : "salesApp",
+					"viewName": "sales.CategoryQuantity",
+					"controlAggregation": "detailPages",
+					"parent": "salesApp"
+				},
+				"salesByCategory": {
+					"controlId" : "salesApp",
+					"viewName": "sales.SalesByCategory",
+					"controlAggregation": "detailPages",
+					"parent": "salesApp"
+				},
+				"salesMade": {
+					"controlId" : "salesApp",
+					"viewName": "sales.CategorySales",
+					"controlAggregation": "detailPages",
+					"parent": "salesApp"
+				},
+				"categoryDetails": {
+					"controlId" : "salesApp",
+					"viewName": "sales.CategoryDetails",
+					"controlAggregation": "detailPages",
+					"parent": "salesApp"
+				},
+				"master": {
+					"controlId" : "salesApp",
+					"viewName": "sales.Master",
+					"controlAggregation": "masterPages",
+					"parent": "salesApp"
+				},
+				"salesApp": {
+					"viewId": "salesApp.",
+					"viewName": "sales.Sales"
+				},
+				"settings": {
+					"viewName": "Settings"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+<mvc:View
+	controllerName="sap.ui.administration.controller.sales.Master"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+		<Page
+			backgroundDesign="Standard"
+			contentOnlyBusy="false"
+			enableScrolling="true"
+			floatingFooter="false"
+			navButtonTooltip=""
+			showFooter="true"
+			showHeader="true"
+			showNavButton="false"
+			showSubHeader="true"
+			title="Master"
+			titleLevel="Auto"
+			blocked="false"
+			busy="false"
+			busyIndicatorDelay="1000"
+			busyIndicatorSize="Medium"
+			fieldGroupIds="[]"
+			visible="true"
+		>
+		<List items="{/Categories}">
+			<ObjectListItem
+				title="{CategoryName}"
+				type="Active"
+				press="showDetails">
+			</ObjectListItem>
+		</List>
+		</Page>
+</mvc:View>
