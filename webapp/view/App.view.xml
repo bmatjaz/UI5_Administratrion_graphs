@@ -23,6 +23,7 @@
 					text="{i18n>appTitle}"
 					level="H2"/>
 				<ToolbarSpacer/>
+				
 			</tnt:ToolHeader>
 		</tnt:header>
 		<tnt:sideContent>

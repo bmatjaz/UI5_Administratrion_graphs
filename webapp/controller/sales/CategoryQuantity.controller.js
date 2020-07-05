@@ -27,7 +27,6 @@ sap.ui.define([
 				filters: [ new sap.ui.model.Filter("Discontinued",sap.ui.model.FilterOperator.EQ, "false") ],
 				parameters: {expand: "Category"},
 				success: function (oRetrievedResult) {
-					console.log(oRetrievedResult)
 					var model = new JSONmodel(oRetrievedResult);
 					this.getView().setModel(model, "product");
 				}.bind(this)

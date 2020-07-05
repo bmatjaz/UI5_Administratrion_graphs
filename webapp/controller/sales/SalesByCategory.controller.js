@@ -28,7 +28,6 @@ sap.ui.define([
             this.oModel.read("/Sales_by_Categories", {
                 filters: [ new sap.ui.model.Filter("CategoryID",sap.ui.model.FilterOperator.EQ, this.categoryId) ],
 				success: function (oRetrievedResult) {
-					console.log(oRetrievedResult)
 					var model = new JSONmodel(oRetrievedResult);
 					this.getView().setModel(model, "products");
 				}.bind(this)

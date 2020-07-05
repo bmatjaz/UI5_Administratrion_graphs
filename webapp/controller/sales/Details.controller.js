@@ -53,7 +53,6 @@ sap.ui.define([
 			this.oModel.read("/Category_Sales_for_1997", {
 				//add filter!
 				success: function (oRetrievedResult) {
-					console.log(oRetrievedResult)
 					var model = new JSONModel(oRetrievedResult);
 					this.getView().setModel(model, "orders");
 				}.bind(this)

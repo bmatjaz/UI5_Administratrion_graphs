@@ -26,7 +26,7 @@ sap.ui.define([
 			this.oModel.read("/Categories(" + this.categoryId + ")/Products", {
 				filters: [ new sap.ui.model.Filter("Discontinued",sap.ui.model.FilterOperator.EQ, false) ],
 				success: function (oRetrievedResult) {
-					console.log(oRetrievedResult)
+			
 					var model = new JSONmodel(oRetrievedResult);
 					this.getView().setModel(model, "product");
 				}.bind(this)
@@ -34,10 +34,5 @@ sap.ui.define([
 			
 		},
 
-		doMe: function() {
-			this.getModel("defaultModel").setProperty("/graphRoute", "quantity");
-
-			console.log( this.getModel("defaultModel").getProperty("/graphRoute"))
-		}
 	});
 });

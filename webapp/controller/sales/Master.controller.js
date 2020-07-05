@@ -11,7 +11,6 @@ sap.ui.define([
 
 		},
 		showDetails: function(oEvent) {
-			console.log(this.getModel("defaultModel").getProperty("/graphRoute"))
 			this.getRouter().navTo(this.getModel("defaultModel").getProperty("/graphRoute"), {categoryID: oEvent.getSource().getBindingContext().getObject().CategoryID});
 		}
 	});

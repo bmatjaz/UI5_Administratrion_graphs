@@ -1,10 +1,191 @@
 <mvc:View
 	controllerName="sap.ui.administration.controller.Settings"
-	xmlns="sap.m"
-	xmlns:l="sap.ui.layout"
+	xmlns="sap.uxap"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page>
-		<Text text="settings" />
-	</Page>
+	<ObjectPageLayout id="objectPageLayout">
+		<headerTitle>
+			<ObjectPageHeader
+				objectTitle="Settings page"
+				objectSubtitle="Configure system settings">
+				<actions>
+					<ObjectPageHeaderActionButton
+						id="save"
+						text="Save"
+						hideText="false"
+						press=".onSavePressed"
+						type="Emphasized"/>
+					<ObjectPageHeaderActionButton
+						id="cancel"
+						text="Cancel"
+						press=".onCancelPressed"
+						hideText="false"/>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<sections>
+			<ObjectPageSection>
+			<subSections>
+				<ObjectPageSubSection
+					id="shopOwnerId"
+					title="Shop owner info">
+					<blocks>
+						<ObjectPageLazyLoader
+							id="shopOwnerLazyLoader">
+							<f:SimpleForm
+								title="Edit owner info"
+								columnsL="2"
+								columnsM="2"
+								editable="true"
+								layout="ResponsiveGridLayout">
+								<f:content>
+									<core:Title text="Address"/>
+										<m:Label
+											text="First name"
+											labelFor="firstNameInput"/>
+										<m:Input
+											id="firstNameInput"
+											type="Text"
+											width="100%"
+											value="John"/>
+										<m:Label
+											labelFor="lastNameInput"
+											text="Last name"/>
+										<m:Input
+											id="lastNameInput"
+											type="Text"
+											width="100%"
+											value="Doe"/>
+										<m:Label
+											labelFor="addressStreetInput"
+											text="Street"/>
+										<m:Input
+											id="addressStreetInput"
+											type="Text"
+											width="100%"
+											value="Midtown Street 23"/>
+										<m:Label
+											labelFor="addressTownInput"
+											text="Zip code"/>
+										<m:Input
+											id="addressTownInput"
+											type="Text"
+											width="100%"
+											value="12345 Newport"/>
+										<m:Label
+											labelFor="addressCountryInput"
+											text="Country"/>
+										<m:Input
+											id="addressCountryInput"
+											type="Text"
+											width="100%"
+											value="England"/>
+									<core:Title text="Contact info" />
+										<m:Label
+											labelFor="phoneNumberInput"
+											text="Mobile number"/>
+										<m:Input
+											id="phoneNumberInput"
+											type="Tel"
+											width="100%"
+											value="+1 234 / 56789"/>
+										<m:Label
+											labelFor="faxNumberInput"
+											text="Fax number"/>
+										<m:Input
+											id="faxNumberInput"
+											type="Tel"
+											width="100%"
+											value="+1 987 / 654321"/>
+										<m:Label
+											labelFor="emailInput"
+											text="mail address"/>
+										<m:Input
+											id="emailInput"
+											type="Email"
+											width="100%"
+											value="john.doe@myshop.com"/>
+								</f:content>
+							</f:SimpleForm>
+						</ObjectPageLazyLoader>
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection
+						id="shopConfigurationId"
+						title="Shop configuration">
+						<blocks>
+							<ObjectPageLazyLoader
+								id="shopConfigurationLazyLoader">
+								<f:SimpleForm
+									title="Edit store info"
+									columnsL="2"
+									columnsM="2"
+									editable="true"
+									layout="ResponsiveGridLayout" >
+									<f:content>
+										<core:Title text="Store settings" />
+											<m:Label
+												labelFor="storeNameInput"
+												text="Store name"/>
+											<m:Input
+												id="storeNameInput"
+												type="Text"
+												width="100%"
+												value="My Shop"/>
+											<m:Label
+												labelFor="storeDefaultLanguageInput"
+												text="Default language"/>
+											<m:Input
+												id="storeDefaultLanguageInput"
+												type="Text"
+												width="100%"
+												value="English"/>
+											<m:Label
+												labelFor="storeCodeInput"
+												text="Store code"/>
+											<m:Input
+												id="storeCodeInput"
+												type="Text"
+												width="100%"
+												value="R2D2-C3P0"/>
+										<core:Title text="Store contact information" />
+											<m:Label
+												labelFor="storeWebsiteInput"
+												text="Store website"/>
+											<m:Input
+												id="storeWebsiteInput"
+												type="Url"
+												width="100%"
+												value="http://www.myshop.com"/>
+											<m:Label
+												labelFor="storePhoneNumberInput"
+												text="Store phone number"/>
+											<m:Input
+												type="Tel"
+												id="storePhoneNumberInput"
+												width="100%"
+												value="+1 2345/6789"/>
+											<m:Label
+												labelFor="storeMailInput"
+												text="mail"/>
+											<m:Input
+												type="Email"
+												id="storeMailInput"
+												width="100%"
+												value="info@myshop.com"/>
+									</f:content>
+								</f:SimpleForm>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
 </mvc:View>

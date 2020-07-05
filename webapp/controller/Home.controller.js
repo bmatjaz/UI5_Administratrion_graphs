@@ -8,6 +8,12 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit : function () {
+		},
+		goToSettings:  function() {
+			this.getRouter().navTo("settings");
+		},
+		goToSales:  function() {
+			this.getRouter().navTo("sales");
 		}
 	});
 });
